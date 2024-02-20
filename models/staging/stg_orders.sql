@@ -1,8 +1,8 @@
 select o.orderid,o.orderdate,o.shipdate,o.shipmode,
 o.ordersellingprice - o.ordercostprice as orderprofit,
 o.ordercostprice,o.ordersellingprice,
-c.customername,c.segment,c.country,
-p.category,p.productname,p.subcategory
+c.customerid,c.customername,c.segment,c.country,
+p.productid,p.category,p.productname,p.subcategory
 from {{ ref('raw_order') }} as o
 left join {{ ref('raw_customer') }} as c
 on o.customerid = c.customerid
